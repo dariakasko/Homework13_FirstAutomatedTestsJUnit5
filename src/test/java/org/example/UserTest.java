@@ -59,7 +59,7 @@ public class UserTest {
             count = 0;
             return;
         }
-        Assertions.assertEquals(users.sortByAge().get(count++), new User(name, surname, age));
+        Assertions.assertEquals(new User(name, surname, age), users.sortByAge().get(count++));
     }
     @Test
     @DisplayName("b:Collection is sorted by Age not Null")
@@ -76,7 +76,7 @@ public class UserTest {
             count = 0;
             return;
         }
-        Assertions.assertNotEquals(users.sortByAge().get(count++), new User(name, surname, age));
+        Assertions.assertNotEquals(new User(name, surname, age), users.sortByAge().get(count++));
     }
 
 
@@ -86,20 +86,20 @@ public class UserTest {
     @Test
     @DisplayName("c: Average age of users")
     public void testAverageAgeOfUsersViaAssertEquals() {
-        Assertions.assertEquals(users.calcMiddleAgeOfUsers(), 65.4);
+        Assertions.assertEquals(65.4, users.calcMiddleAgeOfUsers());
     }
 
     @ParameterizedTest
     @ValueSource(doubles = {1, 15, 65.4})
     @DisplayName("c: Average age of users (parametrized test)")
     public void testAverageAgeOfUsersParams(double doubleValue) {
-        Assertions.assertEquals(users.calcMiddleAgeOfUsers(),doubleValue);
+        Assertions.assertEquals(doubleValue, users.calcMiddleAgeOfUsers());
     }
 
     @Test
     @DisplayName("c: Average age of users (Negative)")
     public void testAverageAgeOfUsersNegative() {
-        Assertions.assertNotEquals(users.calcMiddleAgeOfUsers(), 75.8);
+        Assertions.assertNotEquals(75.8, users.calcMiddleAgeOfUsers());
     }
 
 
@@ -112,7 +112,7 @@ public class UserTest {
             count2 = 0;
             return;
         }
-        Assertions.assertEquals(users.sortBySurname().get(count2++), new User(name, surname, age));
+        Assertions.assertEquals(new User(name, surname, age), users.sortBySurname().get(count2++));
     }
     @Test
     @DisplayName("d: Sorted by username not Null")
@@ -127,7 +127,7 @@ public class UserTest {
             count2 = 0;
             return;
         }
-        Assertions.assertNotEquals(users.sortBySurname().get(count2++), new User(name, surname, age));
+        Assertions.assertNotEquals(new User(name, surname, age), users.sortBySurname().get(count2++));
     }
 
     //Homework E
